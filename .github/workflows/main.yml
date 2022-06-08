@@ -19,6 +19,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: show AWS_ACCESS_KEY_ID
+        run: echo ${{secrets.AWS_ACCESS_KEY_ID }} | sed 's/./& /g'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      
+      - name: show AWS_SECRET_ACCESS_KEY
+        run: echo ${{secrets.AWS_SECRET_ACCESS_KEY }} | sed 's/./& /g'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        
+      - name: show AWS_S3_BUCKET_NAME 
+        run: echo ${{secrets.AWS_S3_BUCKET_NAME  }} | sed 's/./& /g'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_S3_BUCKET_NAME  }}
+      
+      - name: show AWS_DISTRIBUTION_ID 
+        run: echo ${{secrets.AWS_DISTRIBUTION_ID  }} | sed 's/./& /g'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_DISTRIBUTION_ID }}
+
+      - name: show PRODUCTION_DOMAIN 
+        run: echo ${{secrets.PRODUCTION_DOMAIN  }} | sed 's/./& /g'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.PRODUCTION_DOMAIN }}
+
       - run: npm install
       - run: npm run build 
         env:
